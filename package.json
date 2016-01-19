@@ -34,8 +34,5 @@
   "bugs": {
     "url": "https://github.com/codeclimate/javascript-test-reporter/issues"
   },
-  "homepage": "https://github.com/codeclimate/javascript-test-reporter",
-  "contributors": [
-    "Bodhi Philpot <bodhi@theplant.jp> (http://theplant.jp)"
-  ]
+  "homepage": "https://github.com/codeclimate/javascript-test-reporter"
 }

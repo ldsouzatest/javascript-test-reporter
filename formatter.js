@@ -5,7 +5,6 @@ var pjson = require('./package.json');
 var git  = require("./git_info");
 var ci  = require("./ci_info");
 var async = require("async");
-var gocoverParse = require('./gocover_parse');
 
 function Formatter(options) {
   this.options = options || {};
@@ -15,20 +14,10 @@ Formatter.prototype.rootDirectory = function() {
   return this.options.rootDirectory || process.cwd();
 };
 
-Formatter.prototype.parse = function(data, callback) {
-    if (/^TN:/.test(data)) {
-        lcovParse(data, callback);
-    } else if (/^mode:/.test(data)) {
-        gocoverParse(data, callback);
-    } else {
-        callback("Unknown input coverage format", null);
-    }
-}
-
-Formatter.prototype.format = function(coverageData, callback) {
+Formatter.prototype.format = function(lcovData, callback) {
   var self = this;
 
-  self.parse(coverageData, function(parseError, data) {
+  lcovParse(lcovData, function(parseError, data) {
     var result = {
       source_files: self.sourceFiles(data),
       run_at: Date.now(),
