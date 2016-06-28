@@ -10,7 +10,7 @@ module.exports = function(data, cb) {
   lines.shift();
 
   lines.forEach(function(line) {
-    // coverage line syntax:
+    // coverage line syntax1:
     // Filename:<start line>.<start column>,<end line>.<end column>.<# of statements>.<hit count>
     var data = line.match(/(.*?):(\d+).\d+,(\d+).\d+ \d+ (\d+)/);
     if (!data) {
