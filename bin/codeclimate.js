@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node1
 
 var Formatter = require("../formatter");
 var client         = require('../http_client');
